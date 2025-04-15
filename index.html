@@ -1,0 +1,73 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECNOCLEAN - GESTION COMPRAS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TECNOCLEAN - GESTION COMPRAS</h1>
+        
+        <div class="radio-group">
+            <label><input type="radio" name="proveedor-export" value="quillay"> QUILLAY</label>
+            <label><input type="radio" name="proveedor-export" value="qve"> QVE</label>
+            <label><input type="radio" name="proveedor-export" value="nini"> NINI</label>
+            <label><input type="radio" name="proveedor-export" value="maxclean"> MAX CLEAN</label>
+            <label><input type="radio" name="proveedor-export" value="fabrica"> FABRICA</label>
+            <button id="exportar-excel">Exportar a Excel</button>
+        </div>
+        
+        <div class="formulario-articulo">
+            <h2>Agregar Artículo</h2>
+            <select id="proveedor-select">
+                <option value="" disabled selected>Seleccione un proveedor</option>
+                <option value="quillay">QUILLAY</option>
+                <option value="qve">QVE</option>
+                <option value="nini">NINI</option>
+                <option value="maxclean">MAX CLEAN</option>
+                <option value="fabrica">FABRICA</option>
+            </select>
+            <input type="text" id="nombre-articulo" placeholder="Nombre del artículo">
+            <input type="number" id="stock-actual" placeholder="Stock actual">
+            <input type="number" id="cantidad-solicitar" placeholder="Cantidad a solicitar">
+            <button id="agregar-articulo">Agregar a la canasta</button>
+        </div>
+
+        <div class="canastas-accordion">
+            <div class="accordion-item">
+                <button class="accordion-header" data-proveedor="quillay">QUILLAY <span class="item-count">0</span> <span class="detalle-icono" data-proveedor="quillay">&#x24D8;</span></button>
+                <div class="accordion-content" id="canasta-quillay"></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" data-proveedor="qve">QVE <span class="item-count">0</span> <span class="detalle-icono" data-proveedor="qve">&#x24D8;</span></button>
+                <div class="accordion-content" id="canasta-qve"></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" data-proveedor="nini">NINI <span class="item-count">0</span> <span class="detalle-icono" data-proveedor="nini">&#x24D8;</span></button>
+                <div class="accordion-content" id="canasta-nini"></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" data-proveedor="maxclean">MAX CLEAN <span class="item-count">0</span> <span class="detalle-icono" data-proveedor="maxclean">&#x24D8;</span></button>
+                <div class="accordion-content" id="canasta-maxclean"></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" data-proveedor="fabrica">FABRICA <span class="item-count">0</span> <span class="detalle-icono" data-proveedor="fabrica">&#x24D8;</span></button>
+                <div class="accordion-content" id="canasta-fabrica"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-detalle" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Detalle de Artículos - <span id="modal-proveedor-nombre"></span></h2>
+            <div id="modal-lista-articulos"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
